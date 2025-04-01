@@ -30,7 +30,7 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/hustlehub.git
+   git clone https://github.com/Yandisa/hustlehub.git
    cd hustlehub
    ```
 
