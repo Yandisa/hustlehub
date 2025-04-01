@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="text-center bg-primary text-white p-4 rounded mb-4">
+    <h2 class="fw-bold">{{ category|title }}</h2>
+    <p class="mb-0">Browse our collection of {{ category }} products</p>
+  </div>
+
+  {% if products %}
+  <div class="row g-4">
+    {% for product in products %}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100 shadow-sm border-0">
+        {% if product.image and product.image.url %}
+        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+        {% else %}
+        <img src="https://via.placeholder.com/300?text=No+Image" class="card-img-top" alt="No image available">
+        {% endif %}
+
+        <div class="card-body d-flex flex-column">
+          <h6 class="card-title">{{ product.name|truncatechars:40 }}</h6>
+
+          {% if product.discount_price %}
+          <div class="mb-2">
+            <span class="text-danger fw-bold">R{{ product.discount_price }}</span>
+            <small class="text-decoration-line-through text-muted ms-1">R{{ product.price }}</small>
+          </div>
+          {% else %}
+          <p class="text-success fw-bold">R{{ product.price }}</p>
+          {% endif %}
+
+          <p class="text-muted small">{{ product.description|truncatewords:15 }}</p>
+
+          <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary mt-auto">
+            <i class="fas fa-eye me-1"></i> View Details
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  {% else %}
+  <div class="text-center py-5">
+    <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
+    <h4 class="text-muted">No Products Found</h4>
+    <p class="text-muted">We couldn't find any products in the {{ category }} category.</p>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <a href="{% url 'home' %}" class="btn btn-primary">
+        <i class="fas fa-home me-1"></i> Return Home
+      </a>
+      <a href="{% url 'home' %}#categories" class="btn btn-outline-primary">
+        <i class="fas fa-list me-1"></i> Browse Categories
+      </a>
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

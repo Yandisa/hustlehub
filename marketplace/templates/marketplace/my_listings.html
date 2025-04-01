@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container my-4">
+  <div class="text-center bg-light py-4 rounded mb-4">
+    <h2 class="fw-bold text-dark"><i class="fas fa-list-alt me-2"></i>My Listings</h2>
+    <p class="text-muted">Manage your products and services</p>
+  </div>
+
+  {% if products %}
+  <div class="row g-4">
+    {% for product in products %}
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="bg-light text-center" style="height: 200px;">
+          {% if product.image and product.image.url %}
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid h-100 p-3" style="object-fit: contain;">
+          {% else %}
+          <img src="{% static 'images/default_product.jpg' %}" alt="No Image" class="img-fluid h-100 p-3" style="object-fit: contain;">
+          {% endif %}
+        </div>
+        <div class="card-body d-flex flex-column">
+          <h6 class="card-title">{{ product.name|truncatechars:30 }}</h6>
+          <p class="fw-bold text-success">R{{ product.price|floatformat:2 }}</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary btn-sm">
+              <i class="fas fa-eye"></i>
+            </a>
+            <a href="{% url 'edit_product' product.id %}" class="btn btn-outline-warning btn-sm">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a href="{% url 'delete_product' product.id %}" class="btn btn-outline-danger btn-sm">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="text-center py-5">
+    <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
+    <h4 class="text-muted">No Listings Found</h4>
+    <p class="text-muted">You haven't posted any products yet</p>
+    <a href="{% url 'post_listing' %}" class="btn btn-primary">
+      <i class="fas fa-plus me-1"></i> Create New Listing
+    </a>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

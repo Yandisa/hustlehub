@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About Us - HustleHub{% endblock %}
+
+{% block content %}
+<section class="about-section py-5 bg-light">
+  <div class="container bg-white rounded shadow-sm p-4">
+    <div class="text-center mb-5">
+      <h2 class="text-primary fw-bold">About HustleHub</h2>
+      <p class="lead">Connecting buyers and sellers with trust and simplicity</p>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col-md-6">
+        <h3 class="text-secondary border-bottom pb-2">Our Mission</h3>
+        <p>
+          At HustleHub, we're revolutionizing the way people buy and sell online.
+          Our platform creates a seamless, secure marketplace where entrepreneurs
+          and shoppers connect with confidence.
+        </p>
+        <p>
+          Whether you're looking to start a side hustle or find that perfect item,
+          we've built tools to make the process effortless and rewarding for everyone.
+        </p>
+        <p>
+          Our commitment is to foster a community built on trust,
+          transparency, and mutual success.
+        </p>
+      </div>
+      <div class="col-md-6">
+        <h3 class="text-secondary border-bottom pb-2">Contact Us</h3>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i>  contact@hustlehub.com</li>
+          <li class="mb-2"><i class="fas fa-phone me-2 text-primary"></i> +27 (0) 10-123-4567</li>
+          <li class="mb-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i>  123 Hustle Str, Germiston, za</li>
+          <li><i class="fas fa-clock me-2 text-primary"></i> Mon - Fri: 9AM - 5PM</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <h4 class="text-secondary border-bottom pb-2">Meet Our Founder</h4>
+      <div class="d-inline-block">
+        <img src="{% static 'images/yaya.jpg' %}"
+             alt="Yandisa Gaju"
+             class="rounded-circle shadow mb-3"
+             style="width: 180px; height: 180px; object-fit: cover; border: 5px solid #fff;"
+             onerror="this.src='https://via.placeholder.com/180?text=Founder+Photo';">
+        <h5 class="fw-semibold">Yandisa Gaju</h5>
+        <p class="text-muted">Founder & CEO</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="/" class="btn btn-primary">
+        <i class="fas fa-arrow-left me-2"></i> Back to Home
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

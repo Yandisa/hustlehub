@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="card shadow mx-auto" style="max-width: 800px; border-radius: 12px;">
+    <div class="card-header text-white text-center" style="background: linear-gradient(135deg, #1a1a2e 0%, #4361ee 100%); border-top-left-radius: 12px; border-top-right-radius: 12px;">
+      <h4 class="mb-1 fw-bold"><i class="fas fa-plus-circle me-2"></i>Create New Listing</h4>
+      <small class="text-light">Fill out the form below to post your item</small>
+    </div>
+
+    <div class="card-body px-4 py-4">
+      {% if form.errors %}
+      <div class="alert alert-danger" style="border-left: 4px solid #f72585;">
+        <strong><i class="fas fa-exclamation-circle me-2"></i>Please correct the following errors:</strong>
+        <ul class="mb-0 mt-2">
+          {% for field, errors in form.errors.items %}
+          {% for error in errors %}
+          <li>{{ field|title }}: {{ error }}</li>
+          {% endfor %}
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="id_name" class="form-label fw-semibold text-dark">Product Name</label>
+          {{ form.name }}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_price" class="form-label fw-semibold text-dark">Price (R)</label>
+          {{ form.price }}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_category" class="form-label fw-semibold text-dark">Category</label>
+          {{ form.category }}
+        </div>
+
+        <div class="mb-3">
+          <label for="id_description" class="form-label fw-semibold text-dark">Description</label>
+          {{ form.description }}
+        </div>
+
+        <div class="mb-4">
+          <label for="id_image" class="form-label fw-semibold text-dark">Upload Image</label>
+          {{ form.image }}
+        </div>
+
+        <button type="submit" class="btn w-100 fw-semibold text-white" style="background-color: #f72585; border-radius: 8px;">
+          <i class="fas fa-paper-plane me-1"></i> Post Listing
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
