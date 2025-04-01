@@ -4,6 +4,17 @@
 
 ---
 
+## 📚 Table of Contents
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
+- [Getting Started](#-getting-started)
+- [Screenshots](#-screenshots)
+- [Future Features](#-future-features)
+- [Credits](#-credits)
+- [License](#-license)
+
+---
+
 ## 🔥 Features
 
 - 🧍 User Authentication (Register/Login/Logout)
@@ -52,6 +63,22 @@
 
 5. Open your browser and visit:  
    [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+---
+
+## 📸 Screenshots
+
+### Homepage
+![Homepage](screenshots/home_page.png)
+
+### Login Page
+![Login](screenshots/products.png)
+
+### Footer
+![Footer](screenshots/footer.png)
+
+### Category listings
+![Category](screenshots/products-2.png)
 
 ---
 
