@@ -10,7 +10,9 @@ from .forms import ProductForm, ContactSellerForm
 def post_listing(request):
     """
     Allows a logged-in user to create a new product listing.
-    On success, redirects to the user's 'my listings' page.
+
+    GET – Show the form to create a listing.
+    POST – Save listing and redirect to 'My Listings'.
     """
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
@@ -71,7 +73,13 @@ def my_listings(request):
 def edit_product(request, product_id):
     """
     Allows a user to update one of their product listings.
-    Only the owner of the listing can perform this action.
+    
+    Arguments:
+        request – The HTTP request object.
+        product_id – ID of the product to edit.
+
+    Returns:
+        Renders the edit form or redirects after update.
     """
     product = get_object_or_404(
         Product, id=product_id, seller=request.user
@@ -99,8 +107,14 @@ def edit_product(request, product_id):
 @login_required
 def delete_product(request, product_id):
     """
-    Allows a user to delete one of their product listings.
-    Confirmation is required via POST request.
+    Deletes a product listing.
+
+    Requires:
+        - The user to be the owner of the product.
+        - A valid product ID.
+
+    Returns:
+        Redirect to 'My Listings' page after deletion.
     """
     product = get_object_or_404(
         Product, id=product_id, seller=request.user
