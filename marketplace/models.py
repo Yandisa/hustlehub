@@ -78,3 +78,8 @@ class Message(models.Model):
             f"Message from {self.sender} to {self.receiver} "
             f"about {self.product.name}"
         )
+short_description = models.CharField(
+    max_length=100,
+    help_text="Brief summary shown in listings.",
+    default="No summary provided"
+)
