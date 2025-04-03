@@ -25,10 +25,10 @@ SECRET_KEY = (
 )
 
 # Set to False in production
-DEBUG = True
+DEBUG = False
 
 # Define allowed hosts in production (e.g. ['yourdomain.com'])
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hustlehub-7lk9.onrender.com', 'localhost', '127.0.0.1']
 
 # ------------------------------------------------------------------------------
 # APPLICATIONS
