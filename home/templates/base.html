@@ -121,6 +121,8 @@
 </nav>
 
 <!-- Hero -->
+{% if request.path == '/' %}
+<!-- Hero (only on homepage) -->
 <div class="hero">
   <div class="hero-content">
     <h1>Welcome to <span class="text-accent">HustleHub</span></h1>
@@ -130,6 +132,7 @@
     </a>
   </div>
 </div>
+{% endif %}
 
 <!-- Main Content -->
 <main class="container mt-5 pt-4">

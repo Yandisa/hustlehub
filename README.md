@@ -12,6 +12,8 @@
 - [Future Features](#-future-features)
 - [Credits](#-credits)
 - [License](#-license)
+- [Docker Setup](#-docker-setup)
+- [Developer Documentation](#-developer-documentation)
 
 ---
 
@@ -48,7 +50,9 @@
 2. **Create a virtual environment:**
    ```bash
    python -m venv venv
-   source venv/bin/activate  # or venv\Scripts\activate on Windows
+   venv\Scripts\activate     # On Windows
+   # OR
+   source venv/bin/activate  # On macOS/Linux
    ```
 
 3. **Install dependencies:**
@@ -58,6 +62,7 @@
 
 4. **Run the server:**
    ```bash
+   python manage.py migrate
    python manage.py runserver
    ```
 
@@ -102,3 +107,46 @@ Designed and built with ❤️ by Yandisa Gaju — Aspiring Software Developer
 ## 📄 License
 
 This project is open-source and available under the MIT License.
+
+---
+
+## 🐳 Docker Setup
+
+Prefer containers? You can run HustleHub with Docker:
+
+1. **Build the image:**
+   ```bash
+   docker build -t hustlehub .
+   ```
+
+2. **Run the container:**
+   ```bash
+   docker run -p 8000:8000 hustlehub
+   ```
+
+3. Open your browser:  
+   [http://localhost:8000](http://localhost:8000)
+
+> ✅ Make sure `requirements.txt` includes `Pillow`, and your `.env` file is excluded via `.gitignore`.
+
+---
+
+## 📘 Developer Documentation
+
+This project includes Sphinx-generated developer documentation.
+
+To view it locally:
+
+1. Open the file:
+   ```
+   docs/build/html/index.html
+   ```
+
+2. Or serve the docs locally:
+   ```bash
+   cd docs/build/html
+   python -m http.server
+   ```
+
+Then visit:  
+[http://localhost:8000](http://localhost:8000)
