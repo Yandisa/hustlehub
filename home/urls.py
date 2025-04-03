@@ -10,6 +10,3 @@ urlpatterns = [
     path("search/", views.search_results, name="search"),  # Search results
     path("about/", views.about, name="about"),  # Static 'About Us' page
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
