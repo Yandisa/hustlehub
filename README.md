@@ -1,6 +1,9 @@
 # HustleHub 🛒
 
-**HustleHub** is a dynamic online marketplace built for local entrepreneurs and hustlers. Post, browse, and buy products or services with ease in a sleek, modern platform built with Django and Bootstrap.
+**HustleHub** is a dynamic online marketplace built for local entrepreneurs and hustlers. Post, browse, and buy products or services with ease in a sleek, modern platform built with Django and Bootstrap
+
+🌐 **Live Demo**: [https://hustlehub-7lk9.onrender.com](https://hustlehub-7lk9.onrender.com)
+📁 **GitHub**: [https://github.com/Yandisa/hustlehub](https://github.com/Yandisa/hustlehub)
 
 ---
 
