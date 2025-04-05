@@ -25,7 +25,7 @@ SECRET_KEY = (
 )
 
 # Set to False in production
-DEBUG = True
+DEBUG = False
 
 # Define allowed hosts in production (e.g. ['yourdomain.com'])
 ALLOWED_HOSTS = ['hustlehub-7lk9.onrender.com', 'localhost', '127.0.0.1']
@@ -156,8 +156,14 @@ USE_TZ = True
 # ------------------------------------------------------------------------------
 
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+=======
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+>>>>>>> d0bfd140172cd8f44cf3db3f883e04822ee4266c
 
 # ------------------------------------------------------------------------------
 # MEDIA FILES
